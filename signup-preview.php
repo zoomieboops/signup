@@ -58,7 +58,7 @@ $footer = $ready ? \ZoomieBoops\Shared\Renderer::render('footer', $site) : '<foo
 <title>Coming Soon | Zoomie Boops (Preview)</title>
 <style>
 <?php if ($ready) { readfile($library . '/assets/css/shared.css'); } ?>
-*{box-sizing:border-box}body{margin:0;min-height:100vh;display:flex;flex-direction:column;background:#fff7ed;color:#713f32;font-family:Arial,sans-serif}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:flex;flex-direction:column;background:#fff7ed;color:#713f32;font-family:Arial,sans-serif}\n.zb-header,.zb-footer{width:100%;min-width:0}.zb-container{width:min(calc(100% - 2rem),72rem);max-width:100%;margin-inline:auto}
 main{flex:1;display:flex;align-items:center;justify-content:center;padding:40px 24px;text-align:center}
 .content{max-width:620px}h1{font-size:clamp(36px,7vw,60px);line-height:1.12;margin:0 0 20px}
 .tagline{font-size:22px;font-weight:600;margin-bottom:26px}.description{color:#80685d;font-size:17px;line-height:1.8;margin-bottom:36px}
