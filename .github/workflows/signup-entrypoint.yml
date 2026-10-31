@@ -1,0 +1,20 @@
+name: Signup entrypoint quality
+on:
+  push:
+    branches: [feature/basic-signup-page]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+      - name: PHP syntax
+        run: php -l index.php
+      - name: Shared layout and test-only contract
+        run: |
+          php -r '$s=file_get_contents("index.php"); if (file_exists("index.html") || !str_contains($s,"PublicationConsumer::read(\x27main\x27") || !str_contains($s,"current_url") || !str_contains($s,"Renderer::render(\x27footer\x27") || !str_contains($s,"event.preventDefault()") || preg_match("/\\b(mail|file_put_contents|mysqli_query|curl_exec)\\s*\\(/", $s)) exit(1);'
